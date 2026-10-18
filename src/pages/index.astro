@@ -1,0 +1,97 @@
+// ===== FILE: src/pages/index.astro =====
+---
+import Base from '../layouts/Base.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+// TODO: Trage hier deine echten Links ein:
+const links = {
+  github: 'https://github.com/DEIN-USER',          // TODO
+  codeberg: 'https://codeberg.org/DEIN-USER',     // TODO
+  linkedin: 'https://www.linkedin.com/in/DEIN-NAME', // TODO
+  email: 'mailto:kontakt@savary.one',
+  storePdf: 'https://apps.microsoft.com/detail/XXXX', // TODO: Microsoft Store PDF-Migrator
+  repoPflege: 'https://github.com/DEIN-USER/pflegedokumentation', // TODO
+  repoDashboard: 'https://github.com/DEIN-USER/homelab-dashboard', // TODO
+};
+const projekte = [
+  {
+    name: 'Pflegedokumentationssystem',
+    status: 'In Entwicklung',
+    statusClass: 'wip',
+    beschreibung:
+      'Webbasierte Pflegedokumentation für den Heimbetrieb – selbst gehostet, DSGVO-freundlich und ohne Cloud-Zwang. Verbindet meine Berufserfahrung aus dem Gesundheitswesen mit meiner Freude an Softwareentwicklung.',
+    bild: '/images/pflegedoku.png', // TODO: Bild nach public/images/
+    stack: ['Astro', 'Docker', 'SQLite'], // TODO: anpassen
+    href: links.repoPflege,
+    linkLabel: 'GitHub-Repository',
+  },
+  {
+    name: 'Homelab-Dashboard',
+    status: 'Aktiv',
+    statusClass: 'done',
+    beschreibung:
+      'Zentrales Dashboard für meine selbst gehosteten Dienste (Nextcloud, Reverse Proxy u. v. m.) – Status, Übersicht und alles auf einen Blick.',
+    bild: '/images/dashboard.png', // TODO: Bild nach public/images/
+    stack: ['Docker', 'NGINX Proxy Manager', 'Self-Hosting'],
+    href: links.repoDashboard,
+    linkLabel: 'GitHub-Repository',
+  },
+  {
+    name: 'PDF-Migrator',
+    status: 'Im Microsoft Store',
+    statusClass: 'done',
+    beschreibung:
+      'Desktop-Tool zum Umziehen und Aufräumen von PDF-Bibliotheken – verfügbar im Microsoft Store.',
+    bild: '/images/pdf-migrator.png', // TODO: Store-Screenshot nach public/images/
+    stack: ['Windows App'], // TODO: Tech-Stack ergänzen
+    href: links.storePdf,
+    linkLabel: 'Microsoft Store',
+  },
+];
+---
+<Base title="Pius Savary – Self-Hoster & Hobby-Entwickler">
+  <Header />
+  <main class="container">
+    <section class="hero">
+      <h1>Pius Savary</h1>
+      <p class="subtitle"><strong>Self-Hoster &amp; Hobby-Entwickler</strong></p>
+      <p>
+        Ich komme aus dem Gesundheitswesen und beschäftige mich seit einiger
+        Zeit intensiv mit IT – selbstständig und mit viel Neugier. In meinem
+        Homelab hoste und betreibe ich eigene Dienste und entwickle Software,
+        die genau dort ansetzt, wo ich aus dem Berufsalltag Lücken kenne.
+      </p>
+    </section>
+    <section id="projekte">
+      <h2>Projekte</h2>
+      {projekte.map((p) => (
+        <article class="card">
+          <h3>{p.name}</h3>
+          <span class={`status ${p.statusClass}`}>{p.status}</span>
+          <p>{p.beschreibung}</p>
+          <img src={p.bild} alt={`Screenshot: ${p.name}`} loading="lazy" />
+          <div class="tags">
+            {p.stack.map((s) => <span class="tag">{s}</span>)}
+          </div>
+          <p><a href={p.href} target="_blank" rel="noopener">{p.linkLabel} ↗</a></p>
+        </article>
+      ))}
+    </section>
+    <section id="kontakt">
+      <h2>Kontakt</h2>
+      <p>Du findest mich hier:</p>
+      <div class="links">
+        <a href={links.linkedin} target="_blank" rel="noopener">LinkedIn</a>
+        <a href={links.github} target="_blank" rel="noopener">GitHub</a>
+        <a href={links.codeberg} target="_blank" rel="noopener">Codeberg</a>
+        <a href={links.email}>E-Mail</a>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Base>
+<style>
+  .hero { padding-top: 3rem; }
+  .subtitle { font-size: 1.05rem; margin-top: -1rem; }
+  h3 { margin-bottom: 0.35rem; }
+</style>
