@@ -1,0 +1,33 @@
+// ===== FILE: src/components/Header.astro =====
+---
+import '../layouts/Base.astro'; // nur zur Typ-Nähe, optional entfernbar
+---
+<header>
+  <div class="container header-inner">
+    <a href="/" class="brand">Pius Savary</a>
+    <nav>
+      <a href="/">Start</a>
+      <a href="/#projekte">Projekte</a>
+      <a href="/#kontakt">Kontakt</a>
+    </nav>
+  </div>
+</header>
+<style>
+  header {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+  .header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+  .brand { font-weight: 700; font-size: 1.1rem; color: var(--text); }
+  nav a { margin-left: 1.25rem; color: var(--muted); }
+  nav a:hover { color: var(--text); }
+</style>
