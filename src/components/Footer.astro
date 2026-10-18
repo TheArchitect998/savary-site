@@ -1,0 +1,18 @@
+// ===== FILE: src/components/Footer.astro =====
+<footer>
+  <div class="container">
+    <p>
+      <a href="/impressum">Impressum</a> ·
+      <a href="/datenschutz">Datenschutz</a>
+    </p>
+    <p>© {new Date().getFullYear()} Pius Savary</p>
+  </div>
+</footer>
+<style>
+  footer {
+    border-top: 1px solid var(--border);
+    margin-top: 4rem;
+    padding: 1.5rem 0 2.5rem;
+  }
+  p { font-size: 0.85rem; }
+</style>
