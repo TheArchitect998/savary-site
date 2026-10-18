@@ -1,0 +1,40 @@
+// ===== FILE: src/pages/impressum.astro =====
+---
+import Base from '../layouts/Base.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+<Base title="Impressum – Pius Savary">
+  <Header />
+  <main class="container">
+    <section>
+      <h1>Impressum</h1>
+      <div class="card">
+        <h2>Angaben gemäß § 5 DDG</h2>
+        <p>
+          <!-- TODO: Pflichtangaben ergänzen: -->
+          Pius Savary<br />
+          [Straße und Hausnummer]<br />
+          [PLZ Ort]<br />
+          Deutschland
+        </p>
+        <h2>Kontakt</h2>
+        <p>E-Mail: <a href="mailto:kontakt@savary.one">kontakt@savary.one</a></p>
+        <h2>Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV</h2>
+        <p>Pius Savary, Anschrift wie oben.</p>
+      </div>
+      <p class="hinweis">
+        Hinweis: Diese Seite ist ein privates, nicht-kommerzielles Projekt.
+        <!-- TODO (optional): Anstelle der Privatadresse kann eine
+             ladungsfähige Geschäftsadresse / c/o-Adresse angegeben werden. -->
+      </p>
+    </section>
+  </main>
+  <Footer />
+</Base>
+<style>
+  h1 { margin-bottom: 1.5rem; }
+  h2 { font-size: 1.05rem; margin-top: 1.25rem; }
+  .card p { color: var(--text); margin-bottom: 0.5rem; }
+  .hinweis { font-size: 0.85rem; }
+</style>
