@@ -1,0 +1,90 @@
+// ===== FILE: src/pages/datenschutz.astro =====
+---
+import Base from '../layouts/Base.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+<Base title="Datenschutzerklärung – Pius Savary">
+  <Header />
+  <main class="container">
+    <section>
+      <h1>Datenschutzerklärung</h1>
+      <div class="card">
+        <h2>1. Verantwortlicher</h2>
+        <p>
+          Pius Savary, [Anschrift wie im Impressum], E-Mail:
+          <a href="mailto:kontakt@savary.one">kontakt@savary.one</a>
+        </p>
+        <h2>2. Kein Tracking, keine Cookies</h2>
+        <p>
+          Diese Website verwendet <strong>keine Cookies, kein Tracking und
+          keine Analyse-Tools</strong>. Beim Besuch der Seite werden keine
+          personenbezogenen Daten von mir erhoben, gespeichert oder ausgewertet.
+          Es ist daher auch keine Cookie-Einwilligung erforderlich.
+        </p>
+        <h2>3. Server-Logfiles</h2>
+        <p>
+          Beim Aufruf der Website werden vom Hosting-Anbieter technisch
+          bedingt automatisiert Informationen in Server-Logfiles gespeichert
+          (z. B. aufgerufene Seite, Datum und Uhrzeit, übertragene
+          Datenmenge, Browsertyp, IP-Adresse). Diese Daten sind nicht
+          bestimmten Personen zuordenbar und werden nicht mit anderen
+          Datenquellen zusammengeführt. Rechtsgrundlage ist Art. 6 Abs. 1
+          lit. f DSGVO (berechtigtes Interesse am sicheren und stabilen
+          Betrieb der Website). Die Logfiles werden nach kurzer Zeit
+          automatisch gelöscht.
+        </p>
+        <h2>4. Hosting</h2>
+        <p>
+          Diese Website wird statisch über <strong>GitHub Pages</strong>
+          (GitHub, Inc. / Microsoft-Gruppe, USA) ausgeliefert.
+          <!-- TODO: Falls doch eigenes Hosting bei IONOS:
+               diesen Abschnitt entsprechend anpassen. -->
+          Dabei kann es zu einer Übermittlung von Verbindungsdaten in die
+          USA kommen. GitHub ist unter dem EU-US Data Privacy Framework
+          (DPF) zertifiziert, wodurch ein angemessenes Datenschutzniveau
+          für Datenübermittlungen in die USA sichergestellt wird.
+          Es werden von mir keine Formulardaten erhoben; die Übermittlung
+          beschränkt sich auf die unter Ziffer 3 genannten technischen
+          Verbindungsdaten.
+        </p>
+        <h2>5. Externe Links</h2>
+        <p>
+          Diese Website verlinkt auf externe Angebote (z. B. GitHub,
+          Codeberg, LinkedIn, Microsoft Store). Beim Klick auf einen Link
+          verlassen Sie meine Website; für die dortige Datenverarbeitung
+          gilt die Datenschutzerklärung des jeweiligen Anbieters.
+          Es werden keine Plugins oder eingebettete Inhalte Dritter
+          verwendet.
+        </p>
+        <h2>6. Kontakt per E-Mail</h2>
+        <p>
+          Wenn Sie mich per E-Mail kontaktieren, verarbeite ich Ihre
+          Angaben zur Bearbeitung Ihrer Anfrage (Art. 6 Abs. 1 lit. b
+          DSGVO). Die Daten werden gelöscht, sobald der Zweck entfällt
+          und keine gesetzlichen Aufbewahrungspflichten bestehen.
+        </p>
+        <h2>7. Ihre Rechte</h2>
+        <p>
+          Sie haben jederzeit das Recht auf Auskunft, Berichtigung,
+          Löschung, Einschränkung der Verarbeitung, Datenübertragbarkeit
+          und Widerspruch sowie das Recht, sich bei einer
+          Datenschutzaufsichtsbehörde zu beschweren.
+        </p>
+      </div>
+      <p class="hinweis">
+        Hinweis: Dies ist eine für diese statische private Website
+        erstellteMustertext-Datenschutzerklärung. Bitte individuell
+        prüfen (z. B. mit eRecht24-Generator) und an das tatsächliche
+        Hosting anpassen.
+      </p>
+    </section>
+  </main>
+  <Footer />
+</Base>
+<style>
+  h1 { margin-bottom: 1.5rem; }
+  h2 { font-size: 1.05rem; margin-top: 1.25rem; }
+  .card p { color: var(--text); margin-bottom: 0.75rem; }
+  .hinweis { font-size: 0.85rem; }
+</style>
