@@ -3,15 +3,14 @@
 import Base from '../layouts/Base.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-// TODO: Trage hier deine echten Links ein:
 const links = {
-  github: 'https://github.com/DEIN-USER',          // TODO
-  codeberg: 'https://codeberg.org/DEIN-USER',     // TODO
-  linkedin: 'https://www.linkedin.com/in/DEIN-NAME', // TODO
-  email: 'mailto:kontakt@savary.one',
-  storePdf: 'https://apps.microsoft.com/detail/XXXX', // TODO: Microsoft Store PDF-Migrator
+  github: 'https://github.com/TheArchitect998',
+  // codeberg: 'https://codeberg.org/DEIN-USER', TODO
+  linkedin: 'https://www.linkedin.com/in/pius-jj-savary',
+  email: 'mailto:postmaster@savary.one',
+  storePdf: 'https://apps.microsoft.com/detail/9p628vwsxmjt?ocid=webpdpshare',
   repoPflege: 'https://github.com/DEIN-USER/pflegedokumentation', // TODO
-  repoDashboard: 'https://github.com/DEIN-USER/homelab-dashboard', // TODO
+  repoDashboard: 'https://github.com/TheArchitect998/HomeLab-Dashboard',
 };
 const projekte = [
   {
@@ -32,7 +31,7 @@ const projekte = [
     beschreibung:
       'Zentrales Dashboard für meine selbst gehosteten Dienste (Nextcloud, Reverse Proxy u. v. m.) – Status, Übersicht und alles auf einen Blick.',
     bild: '/images/dashboard.png', // TODO: Bild nach public/images/
-    stack: ['Docker', 'NGINX Proxy Manager', 'Self-Hosting'],
+    stack: ['Self-Hosting'], // Ergänzen, Python, Skriptbasiert
     href: links.repoDashboard,
     linkLabel: 'GitHub-Repository',
   },
@@ -41,9 +40,9 @@ const projekte = [
     status: 'Im Microsoft Store',
     statusClass: 'done',
     beschreibung:
-      'Desktop-Tool zum Umziehen und Aufräumen von PDF-Bibliotheken – verfügbar im Microsoft Store.',
+      'Desktop-Tool zum zusammenführen zweier PDF Dokumente – verfügbar im Microsoft Store.',
     bild: '/images/pdf-migrator.png', // TODO: Store-Screenshot nach public/images/
-    stack: ['Windows App'], // TODO: Tech-Stack ergänzen
+    stack: ['Windows App', 'Python'],
     href: links.storePdf,
     linkLabel: 'Microsoft Store',
   },
