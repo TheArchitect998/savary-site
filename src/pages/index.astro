@@ -20,7 +20,7 @@ const projekte = [
     beschreibung:
       'Webbasierte Pflegedokumentation für den Heimbetrieb – selbst gehostet, DSGVO-freundlich und ohne Cloud-Zwang. Verbindet meine Berufserfahrung aus dem Gesundheitswesen mit meiner Freude an Softwareentwicklung.',
     bild: '/images/pflegedoku.png', // TODO: Bild nach public/images/
-    stack: ['Astro', 'Docker', 'SQLite'], // TODO: anpassen
+    stack: ['Docker', 'SQLite'], // TODO: anpassen
     href: links.repoPflege,
     linkLabel: 'GitHub-Repository',
   },
@@ -29,9 +29,9 @@ const projekte = [
     status: 'Aktiv',
     statusClass: 'done',
     beschreibung:
-      'Zentrales Dashboard für meine selbst gehosteten Dienste (Nextcloud, Reverse Proxy u. v. m.) – Status, Übersicht und alles auf einen Blick.',
+      'Zentrales Dashboard für Systeminformationen, UFW, Fail2Ban und aktive Docker Container meiner selbst gehosteten Dienste – Status, Übersicht und alles auf einen Blick.',
     bild: '/images/dashboard.png', // TODO: Bild nach public/images/
-    stack: ['Self-Hosting'], // Ergänzen, Python, Skriptbasiert
+    stack: ['Self-Hosting', 'HTML', 'Python'], // Ergänzen, Python, Skriptbasiert
     href: links.repoDashboard,
     linkLabel: 'GitHub-Repository',
   },
@@ -53,6 +53,7 @@ const projekte = [
   <main class="container">
     <section class="hero">
       <h1>Pius Savary</h1>
+      <p></p>
       <p class="subtitle"><strong>Self-Hoster &amp; Hobby-Entwickler</strong></p>
       <p>
         Ich komme aus dem Gesundheitswesen und beschäftige mich seit einiger
