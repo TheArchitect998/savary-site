@@ -34,9 +34,6 @@
 //
 // TODO-LISTE:
 //   [ ] Links (GitHub, Codeberg, LinkedIn, Store) eintragen
-//   [ ] Screenshots nach public/images/ (pflegedoku.png,
-//       dashboard.png, pdf-migrator.png)
-//   [ ] Tech-Stacks anpassen
 //   [ ] Impressum: Anschrift ergänzen (oder c/o-Adresse)
 //   [ ] Datenschutzerklärung final prüfen
 // ============================================================

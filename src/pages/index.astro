@@ -9,7 +9,6 @@ const links = {
   linkedin: 'https://www.linkedin.com/in/pius-jj-savary',
   email: 'mailto:postmaster@savary.one',
   storePdf: 'https://apps.microsoft.com/detail/9p628vwsxmjt?ocid=webpdpshare',
-  repoPflege: 'https://github.com/DEIN-USER/pflegedokumentation', // TODO
   repoDashboard: 'https://github.com/TheArchitect998/HomeLab-Dashboard',
 };
 const projekte = [
@@ -18,20 +17,22 @@ const projekte = [
     status: 'In Entwicklung',
     statusClass: 'wip',
     beschreibung:
-      'Webbasierte Pflegedokumentation für den Heimbetrieb – selbst gehostet, DSGVO-freundlich und ohne Cloud-Zwang. Verbindet meine Berufserfahrung aus dem Gesundheitswesen mit meiner Freude an Softwareentwicklung.',
-    bild: '/images/pflegedoku.png', // TODO: Bild nach public/images/
-    stack: ['Docker', 'SQLite'], // TODO: anpassen
-    href: links.repoPflege,
-    linkLabel: 'GitHub-Repository',
+      'Eine in Entwicklung befindliche webbasierte Pflegedokumentation für den Pflegealltag. Die selbst gehostete Anwendung unterstützt unter anderem die Erfassung von Pflegeeinträgen, Vitalwerten und Medikamentenbeständen und verbindet meine Erfahrung im Gesundheitswesen mit Softwareentwicklung.',
+    bild: '/images/pflegedoku.png',
+    bildAlt: 'Screenshot der Pflegedokumentation mit Vitalwerten einer Demo-Person',
+    bildHinweis: 'Screenshot der Anwendung mit fiktiven Beispieldaten.',
+    stack: ['Python', 'Flask', 'SQLite', 'Docker', 'Self-Hosting'],
   },
   {
     name: 'Homelab-Dashboard',
     status: 'Aktiv',
     statusClass: 'done',
     beschreibung:
-      'Ein leichtes, selbst gehostetes Überwachungs-Dashboard für Heimlabore. Überwache mehrere Geräte (Raspberry Pi, Mini-PCs, NAS, etc.) von einer einzigen Weboberfläche aus. Verfolge CPU, RAM, Festplattennutzung, Temperatur, Firewall-Status und laufende Container in Echtzeit. Perfekt für: Heimlabore, kleine Serverfarmen, Überwachung der persönlichen Infrastruktur.',
-    bild: '/images/dashboard.png', // TODO: Bild nach public/images/
-    stack: ['Self-Hosting', 'HTML', 'Python'], // Ergänzen, Python, Skriptbasiert
+      'Ein leichtgewichtiges, selbst gehostetes Monitoring-Dashboard für Heimlabore. Python-basierte Agenten erfassen den Status mehrerer Geräte; eine zentrale Weboberfläche zeigt unter anderem CPU, Arbeitsspeicher, Festplatten, Temperaturen, Firewall und Container an. So behältst du deine Infrastruktur an einem Ort im Blick.',
+    bild: '/images/dashboard.png',
+    bildAlt: 'Screenshot des Homelab-Dashboards mit Systemmetriken und Containerstatus',
+    bildHinweis: 'Screenshot des Dashboards mit fiktiven Beispieldaten.',
+    stack: ['Python', 'FastAPI', 'HTML', 'JavaScript', 'Self-Hosting'],
     href: links.repoDashboard,
     linkLabel: 'GitHub-Repository',
   },
@@ -40,8 +41,10 @@ const projekte = [
     status: 'Im Microsoft Store',
     statusClass: 'done',
     beschreibung:
-      'Der PDF-Migrator fügt Seiten aus zwei PDF-Dateien zu einem Dokument zusammen. Wähle die PDF-Datei mit den ungeraden Seiten und die PDF-Datei mit den geraden Seiten. Die ungeraden Seiten bleiben aufsteigend sortiert. Für die geraden Seiten kannst du zwischen Vorwärts- und Rückwärtsreihenfolge wählen. Eine Vorschau zeigt die resultierende Seitenfolge. Die Verarbeitung erfolgt lokal auf deinem Gerät; deine Dateien werden nicht hochgeladen. – verfügbar im Microsoft Store.',
+      'Der PDF-Migrator führt getrennt gescannte Vorder- und Rückseiten zu einem PDF zusammen. Dazu wählst du eine Datei mit den ungeraden und eine mit den geraden Seiten; für die geraden Seiten lässt sich die Reihenfolge umkehren. Eine Vorschau zeigt die resultierende Seitenfolge. Die Verarbeitung erfolgt lokal auf deinem Windows-Gerät, ohne Dateien hochzuladen.',
     bild: '/images/pdf-migrator.png',
+    bildAlt: 'Screenshot des PDF-Migrators',
+    bildHinweis: null,
     stack: ['Windows App', 'Python'],
     href: links.storePdf,
     linkLabel: 'Microsoft Store',
@@ -52,15 +55,17 @@ const projekte = [
   <Header />
   <main class="container">
     <section class="hero">
-      <h1>Pius Savary</h1>
-      <p></p>
-      <p class="subtitle"><strong>Self-Hoster &amp; Hobby-Entwickler</strong></p>
-      <p>
-        Ich komme aus dem Gesundheitswesen und beschäftige mich seit einiger
-        Zeit intensiv mit IT – selbstständig und mit viel Neugier. In meinem
-        Homelab hoste und betreibe ich eigene Dienste und entwickle Software,
-        die genau dort ansetzt, wo ich aus dem Berufsalltag Lücken kenne.
-      </p>
+      <img class="portrait" src="/images/Pius.jpg" alt="Porträt von Pius Savary" width="1368" height="2000" />
+      <div>
+        <h1>Pius Savary</h1>
+        <p class="subtitle"><strong>Self-Hoster &amp; Hobby-Entwickler</strong></p>
+        <p>
+          Ich komme aus dem Gesundheitswesen und beschäftige mich seit einiger
+          Zeit intensiv mit IT – selbstständig und mit viel Neugier. In meinem
+          Homelab hoste und betreibe ich eigene Dienste und entwickle Software,
+          die genau dort ansetzt, wo ich aus dem Berufsalltag Lücken kenne.
+        </p>
+      </div>
     </section>
     <section id="projekte">
       <h2>Projekte</h2>
@@ -69,11 +74,14 @@ const projekte = [
           <h3>{p.name}</h3>
           <span class={`status ${p.statusClass}`}>{p.status}</span>
           <p>{p.beschreibung}</p>
-          <img src={p.bild} alt={`Screenshot: ${p.name}`} loading="lazy" />
+          <figure>
+            <img src={p.bild} alt={p.bildAlt} loading="lazy" />
+            {p.bildHinweis && <figcaption>{p.bildHinweis}</figcaption>}
+          </figure>
           <div class="tags">
             {p.stack.map((s) => <span class="tag">{s}</span>)}
           </div>
-          <p><a href={p.href} target="_blank" rel="noopener">{p.linkLabel} ↗</a></p>
+          {p.href && <p><a href={p.href} target="_blank" rel="noopener">{p.linkLabel} ↗</a></p>}
         </article>
       ))}
     </section>
@@ -91,7 +99,13 @@ const projekte = [
   <Footer />
 </Base>
 <style>
-  .hero { padding-top: 3rem; }
-  .subtitle { font-size: 1.05rem; margin-top: -1rem; }
+  .hero { padding-top: 3rem; display: flex; align-items: center; gap: 2rem; }
+  .portrait { width: 180px; height: 180px; flex: 0 0 180px; object-fit: cover; object-position: center 30%; border-radius: 50%; border: 2px solid var(--border); }
+  .subtitle { font-size: 1.05rem; margin-top: 0.4rem; }
+  figcaption { color: var(--muted); font-size: 0.8rem; }
   h3 { margin-bottom: 0.35rem; }
+  @media (max-width: 600px) {
+    .hero { flex-direction: column; align-items: flex-start; gap: 1.25rem; }
+    .portrait { width: 140px; height: 140px; flex-basis: 140px; }
+  }
 </style>
