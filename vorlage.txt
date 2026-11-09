@@ -37,3 +37,21 @@
 //   [ ] Impressum: Anschrift ergänzen (oder c/o-Adresse)
 //   [ ] Datenschutzerklärung final prüfen
 // ============================================================
+
+-------------------
+
+Impressum
+
+Inhalte gemäß § 5 DDG
+
+Pius Savary
+c/o IP-Management #12900
+Ludwig-Erhard-Straße 18
+20459 Hamburg
+
+Kontaktdaten:
+
+E-Mail: kontakt@savary.one
+Telefon: 015152291217 
+
+Quelle: Impressum-Privatschutz
