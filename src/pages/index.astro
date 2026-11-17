@@ -55,6 +55,7 @@ const projekte = [
     stack: ['Windows App', 'Python'],
     href: links.storePdf,
     linkLabel: 'Microsoft Store',
+    badge: 'https://get.microsoft.com/images/de%20light.svg',
   },
 ];
 ---
@@ -96,7 +97,15 @@ const projekte = [
           <div class="tags">
             {p.stack.map((s) => <span class="tag">{s}</span>)}
           </div>
-          {p.href && <p><a href={p.href} target="_blank" rel="noopener">{p.linkLabel} ↗</a></p>}
+          {p.href && (
+            <p>
+              <a href={p.href} target="_blank" rel="noopener">
+                {p.badge
+                  ? <img class="badge" src={p.badge} alt={`Herunterladen im ${p.linkLabel}`} width="200" height="60" loading="lazy" />
+                  : <>{p.linkLabel} ↗</>}
+              </a>
+            </p>
+          )}
         </article>
       ))}
     </section>
@@ -119,6 +128,7 @@ const projekte = [
   .subtitle { font-size: 1.05rem; margin-top: 0.4rem; }
   figcaption { color: var(--muted); font-size: 0.8rem; }
   h3 { margin-bottom: 0.35rem; }
+  .badge { display: block; height: auto; width: 200px; }
   h4 { margin: 0.75rem 0 0.25rem; }
   .neu { margin: 0 0 1rem; padding-left: 1.25rem; }
   .neu li { margin-bottom: 0.3rem; }
