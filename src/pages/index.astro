@@ -24,11 +24,18 @@ const projekte = [
     stack: ['Python', 'Flask', 'SQLite', 'Docker', 'Self-Hosting'],
   },
   {
-    name: 'Homelab-Dashboard',
+    name: 'HomeLab Dashboard',
     status: 'Aktiv',
     statusClass: 'done',
     beschreibung:
-      'Ein leichtgewichtiges, selbst gehostetes Monitoring-Dashboard für Heimlabore. Python-basierte Agenten erfassen den Status mehrerer Geräte; eine zentrale Weboberfläche zeigt unter anderem CPU, Arbeitsspeicher, Festplatten, Temperaturen, Firewall und Container an. So behältst du deine Infrastruktur an einem Ort im Blick.',
+      'HomeLab Dashboard ist ein selbst gehostetes Monitoring-Dashboard für Linux-Hosts und Homelabs. Es zeigt CPU, RAM, Temperatur, Docker-Container, UFW- und Fail2Ban-Status mit 30 Tagen Verlauf. Benachrichtigungen kommen per Telegram, Discord, Ntfy, Pushover, E-Mail, Webhook oder Gotify.',
+    neuTitel: 'Neu in v2.2.2',
+    neuListe: [
+      { label: 'Sicherheit', text: 'Agent-Key ist Pflicht (mind. 16 Zeichen). Die Verbindung zum Agent ist per TLS verschlüsselt, optional mit Zertifikat-Pinning. Es gibt Reverse-Proxy-Beispiele für Caddy, nginx und Traefik.' },
+      { label: 'Metriken', text: 'Swap, Disk-I/O, Netzwerkraten, S.M.A.R.T. (opt-in), NVIDIA-GPU, ZFS und Akku. CPU, RAM und Netzwerk pro Container mit Verlaufsdiagrammen. Optionale Hardware-Warnungen.' },
+      { label: 'Erreichbarkeit', text: 'HTTP-, TCP-, Ping- und DNS-Checks mit Ausfall- und Entwarnungsmeldung.' },
+      { label: 'Deployment', text: 'Neue Compose-Dateien für Full-, TLS- und S.M.A.R.T.-Setups.' },
+    ],
     bild: '/images/dashboard.png',
     bildAlt: 'Screenshot des Homelab-Dashboards mit Systemmetriken und Containerstatus',
     bildHinweis: 'Screenshot des Dashboards mit fiktiven Beispieldaten.',
@@ -48,6 +55,7 @@ const projekte = [
     stack: ['Windows App', 'Python'],
     href: links.storePdf,
     linkLabel: 'Microsoft Store',
+    badge: 'https://get.microsoft.com/images/de%20light.svg',
   },
 ];
 ---
@@ -74,6 +82,14 @@ const projekte = [
           <h3>{p.name}</h3>
           <span class={`status ${p.statusClass}`}>{p.status}</span>
           <p>{p.beschreibung}</p>
+          {p.neuListe && (
+            <>
+              <h4>{p.neuTitel}</h4>
+              <ul class="neu">
+                {p.neuListe.map((n) => <li><strong>{n.label}:</strong> {n.text}</li>)}
+              </ul>
+            </>
+          )}
           <figure>
             <img src={p.bild} alt={p.bildAlt} loading="lazy" />
             {p.bildHinweis && <figcaption>{p.bildHinweis}</figcaption>}
@@ -81,7 +97,15 @@ const projekte = [
           <div class="tags">
             {p.stack.map((s) => <span class="tag">{s}</span>)}
           </div>
-          {p.href && <p><a href={p.href} target="_blank" rel="noopener">{p.linkLabel} ↗</a></p>}
+          {p.href && (
+            <p>
+              <a href={p.href} target="_blank" rel="noopener">
+                {p.badge
+                  ? <img class="badge" src={p.badge} alt={`Herunterladen im ${p.linkLabel}`} width="200" height="60" loading="lazy" />
+                  : <>{p.linkLabel} ↗</>}
+              </a>
+            </p>
+          )}
         </article>
       ))}
     </section>
@@ -104,6 +128,10 @@ const projekte = [
   .subtitle { font-size: 1.05rem; margin-top: 0.4rem; }
   figcaption { color: var(--muted); font-size: 0.8rem; }
   h3 { margin-bottom: 0.35rem; }
+  .badge { display: block; height: auto; width: 200px; }
+  h4 { margin: 0.75rem 0 0.25rem; }
+  .neu { margin: 0 0 1rem; padding-left: 1.25rem; }
+  .neu li { margin-bottom: 0.3rem; }
   @media (max-width: 600px) {
     .hero { flex-direction: column; align-items: flex-start; gap: 1.25rem; }
     .portrait { width: 140px; height: 140px; flex-basis: 140px; }
