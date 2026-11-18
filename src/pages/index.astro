@@ -9,7 +9,7 @@ const links = {
   linkedin: 'https://www.linkedin.com/in/pius-jj-savary',
   email: 'mailto:kontakt@savary.one',
   storePdf: 'https://apps.microsoft.com/detail/9p628vwsxmjt?ocid=webpdpshare',
-  repoDashboard: 'https://github.com/TheArchitect998/HomeLab-Dashboard',
+  repoLabGuard: 'https://github.com/TheArchitect998/LabGuard.git',
 };
 const projekte = [
   {
@@ -24,11 +24,11 @@ const projekte = [
     stack: ['Python', 'Flask', 'SQLite', 'Docker', 'Self-Hosting'],
   },
   {
-    name: 'HomeLab Dashboard',
+    name: 'LabGuard',
     status: 'Aktiv',
     statusClass: 'done',
     beschreibung:
-      'HomeLab Dashboard ist ein selbst gehostetes Monitoring-Dashboard für Linux-Hosts und Homelabs. Es zeigt CPU, RAM, Temperatur, Docker-Container, UFW- und Fail2Ban-Status mit 30 Tagen Verlauf. Benachrichtigungen kommen per Telegram, Discord, Ntfy, Pushover, E-Mail, Webhook oder Gotify.',
+      'LabGuard ist ein selbst gehostetes Monitoring-Dashboard für Linux-Hosts und Homelabs. Es zeigt CPU, RAM, Temperatur, Docker-Container, UFW- und Fail2Ban-Status mit 30 Tagen Verlauf. Benachrichtigungen kommen per Telegram, Discord, Ntfy, Pushover, E-Mail, Webhook oder Gotify.',
     neuTitel: 'Neu in v2.2.2',
     neuListe: [
       { label: 'Sicherheit', text: 'Agent-Key ist Pflicht (mind. 16 Zeichen). Die Verbindung zum Agent ist per TLS verschlüsselt, optional mit Zertifikat-Pinning. Es gibt Reverse-Proxy-Beispiele für Caddy, nginx und Traefik.' },
@@ -37,10 +37,10 @@ const projekte = [
       { label: 'Deployment', text: 'Neue Compose-Dateien für Full-, TLS- und S.M.A.R.T.-Setups.' },
     ],
     bild: '/images/dashboard.png',
-    bildAlt: 'Screenshot des Homelab-Dashboards mit Systemmetriken und Containerstatus',
+    bildAlt: 'Screenshot von LabGuard mit Systemmetriken und Containerstatus',
     bildHinweis: 'Screenshot des Dashboards mit fiktiven Beispieldaten.',
     stack: ['Python', 'FastAPI', 'HTML', 'JavaScript', 'Self-Hosting'],
-    href: links.repoDashboard,
+    href: links.repoLabGuard,
     linkLabel: 'GitHub-Repository',
   },
   {
