@@ -9,7 +9,7 @@ const links = {
   linkedin: 'https://www.linkedin.com/in/pius-jj-savary',
   email: 'mailto:kontakt@savary.one',
   storePdf: 'https://apps.microsoft.com/detail/9p628vwsxmjt?ocid=webpdpshare',
-  repoNodeSentinel: 'https://github.com/TheArchitect998/NodeSentinel.git',
+  repoNodeSentinel: 'https://github.com/TheArchitect998/NodeSentinel',
 };
 const projekte = [
   {
@@ -28,18 +28,18 @@ const projekte = [
     status: 'Aktiv',
     statusClass: 'done',
     beschreibung:
-      'NodeSentinel ist ein selbst gehostetes Monitoring-Dashboard für Linux-Hosts und Homelabs. Es zeigt CPU, RAM, Temperatur, Docker-Container, UFW- und Fail2Ban-Status mit 30 Tagen Verlauf. Benachrichtigungen kommen per Telegram, Discord, Ntfy, Pushover, E-Mail, Webhook oder Gotify.',
-    neuTitel: 'Neu in v2.2.2',
+      'NodeSentinel ist ein selbst gehostetes, vollständig in Go geschriebenes Monitoring-Dashboard für Linux-Hosts und Homelabs. Es zeigt CPU, RAM, Temperaturen, Docker-Container, UFW- und Fail2Ban-Status mit 30 Tagen Verlauf. Dashboard und Agent laufen ohne Python-Laufzeit; Daten werden weiterhin lokal in SQLite gespeichert.',
+    neuTitel: 'Neu in v2.4.0',
     neuListe: [
-      { label: 'Sicherheit', text: 'Agent-Key ist Pflicht (mind. 16 Zeichen). Die Verbindung zum Agent ist per TLS verschlüsselt, optional mit Zertifikat-Pinning. Es gibt Reverse-Proxy-Beispiele für Caddy, nginx und Traefik.' },
-      { label: 'Metriken', text: 'Swap, Disk-I/O, Netzwerkraten, S.M.A.R.T. (opt-in), NVIDIA-GPU, ZFS und Akku. CPU, RAM und Netzwerk pro Container mit Verlaufsdiagrammen. Optionale Hardware-Warnungen.' },
-      { label: 'Erreichbarkeit', text: 'HTTP-, TCP-, Ping- und DNS-Checks mit Ausfall- und Entwarnungsmeldung.' },
-      { label: 'Deployment', text: 'Neue Compose-Dateien für Full-, TLS- und S.M.A.R.T.-Setups.' },
+      { label: 'Go', text: 'Dashboard und Agent sind als native Go-Binaries umgesetzt. Python-Laufzeit und Python-Abhängigkeiten werden nicht mehr benötigt.' },
+      { label: 'Überwachung', text: 'System-, Hardware- und Container-Metriken, Erreichbarkeitsprüfungen sowie Benachrichtigungen per Telegram, Discord, Ntfy, Pushover, E-Mail, Webhook oder Gotify.' },
+      { label: 'Sicherheit', text: 'Authentifizierung über Agent-Keys, TLS mit optionalem Zertifikat-Pinning und minimale, je nach Feature aktivierbare Container-Berechtigungen.' },
+      { label: 'Deployment', text: 'Veröffentlichte Multi-Arch-Images für AMD64 und ARM64. Zwei einheitliche Compose-Dateien unterstützen Raspberry Pi, Docker Compose, Dockhand und Portainer.' },
     ],
     bild: '/images/dashboard.png',
     bildAlt: 'Screenshot von NodeSentinel mit Systemmetriken und Containerstatus',
     bildHinweis: 'Screenshot des Dashboards mit fiktiven Beispieldaten.',
-    stack: ['Python', 'FastAPI', 'HTML', 'JavaScript', 'Self-Hosting'],
+    stack: ['Go', 'SQLite', 'Docker', 'HTML', 'JavaScript', 'Self-Hosting'],
     href: links.repoNodeSentinel,
     linkLabel: 'GitHub-Repository',
   },
