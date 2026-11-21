@@ -10,6 +10,7 @@ const links = {
   email: 'mailto:kontakt@savary.one',
   storePdf: 'https://apps.microsoft.com/detail/9p628vwsxmjt?ocid=webpdpshare',
   repoNodeSentinel: 'https://github.com/TheArchitect998/NodeSentinel',
+  dockerHub: 'https://hub.docker.com/u/thearchitect998',
 };
 const projekte = [
   {
@@ -29,12 +30,12 @@ const projekte = [
     statusClass: 'done',
     beschreibung:
       'NodeSentinel ist ein selbst gehostetes, vollständig in Go geschriebenes Monitoring-Dashboard für Linux-Hosts und Homelabs. Es zeigt CPU, RAM, Temperaturen, Docker-Container, UFW- und Fail2Ban-Status mit 30 Tagen Verlauf. Dashboard und Agent laufen ohne Python-Laufzeit; Daten werden weiterhin lokal in SQLite gespeichert.',
-    neuTitel: 'Neu in v2.4.0',
+    neuTitel: 'Neu in v2.4.1',
     neuListe: [
-      { label: 'Go', text: 'Dashboard und Agent sind als native Go-Binaries umgesetzt. Python-Laufzeit und Python-Abhängigkeiten werden nicht mehr benötigt.' },
-      { label: 'Überwachung', text: 'System-, Hardware- und Container-Metriken, Erreichbarkeitsprüfungen sowie Benachrichtigungen per Telegram, Discord, Ntfy, Pushover, E-Mail, Webhook oder Gotify.' },
-      { label: 'Sicherheit', text: 'Authentifizierung über Agent-Keys, TLS mit optionalem Zertifikat-Pinning und minimale, je nach Feature aktivierbare Container-Berechtigungen.' },
-      { label: 'Deployment', text: 'Veröffentlichte Multi-Arch-Images für AMD64 und ARM64. Zwei einheitliche Compose-Dateien unterstützen Raspberry Pi, Docker Compose, Dockhand und Portainer.' },
+      { label: 'WebSocket-Push', text: 'Agenten verbinden sich ausgehend und verschlüsselt mit dem Dashboard und senden regelmäßig Messwerte.' },
+      { label: 'Weniger Berechtigungen', text: 'Docker-Socket, Host-Dateisystem und Journal sind standardmäßig nicht eingebunden. Zusätzliche Datenquellen lassen sich bei Bedarf aktivieren.' },
+      { label: 'Gehärteter Dienst', text: 'Das systemd-Beispiel nutzt einen separaten Benutzer und zusätzliche Schutzmaßnahmen.' },
+      { label: 'Wiederverbindung', text: 'Agenten verbinden sich nach einem Ausfall automatisch erneut. Ereignisse werden nach Möglichkeit aus lokalen Quellen nachgeholt.' },
     ],
     bild: '/images/dashboard.png',
     bildAlt: 'Screenshot von NodeSentinel mit Systemmetriken und Containerstatus',
@@ -42,6 +43,8 @@ const projekte = [
     stack: ['Go', 'SQLite', 'Docker', 'HTML', 'JavaScript', 'Self-Hosting'],
     href: links.repoNodeSentinel,
     linkLabel: 'GitHub-Repository',
+    secondaryHref: links.dockerHub,
+    secondaryLinkLabel: 'Docker Hub',
   },
   {
     name: 'PDF-Migrator',
@@ -104,6 +107,14 @@ const projekte = [
                   ? <img class="badge" src={p.badge} alt={`Herunterladen im ${p.linkLabel}`} width="200" height="60" loading="lazy" />
                   : <>{p.linkLabel} ↗</>}
               </a>
+              {p.secondaryHref && (
+                <>
+                  {' · '}
+                  <a href={p.secondaryHref} target="_blank" rel="noopener">
+                    {p.secondaryLinkLabel} ↗
+                  </a>
+                </>
+              )}
             </p>
           )}
         </article>
