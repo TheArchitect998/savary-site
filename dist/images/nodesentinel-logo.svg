@@ -2,14 +2,17 @@
   <title id="title">NodeSentinel</title>
   <desc id="desc">NodeSentinel Logo für dunkle Hintergründe</desc>
   <g transform="translate(324 8) scale(.82)">
-    <path fill="#1eecc5" d="M15 17 64 45 39 51 24 37 8 27l7-10Zm98 0L64 45l25 6 15-14 16-10-7-10Z"/>
-    <path fill="none" stroke="#1eecc5" stroke-width="7" d="M21 49v16c0 24 18 42 43 51 25-9 43-27 43-51V49L91 61m-70-12 16 12M27 78l27 17m47-17L74 95"/>
-    <path fill="none" stroke="#1eecc5" stroke-width="7" stroke-linecap="round" d="M64 24 80 35m-16-11L48 35"/>
-    <path fill="none" stroke="#1eecc5" stroke-width="7" d="M43 58c-10 3-14 12-10 21 4 8 15 11 23 4 5-4 8-12 4-17m25-8c10 3 14 12 10 21-4 8-15 11-23 4-5-4-8-12-4-17"/>
-    <path fill="#07110d" stroke="#1eecc5" stroke-width="4" d="M57 64c-6 8-4 18 3 22 3 2 6 2 8 0 7-4 9-14 3-22-4-5-10-5-14 0Z"/>
-    <path fill="#ff8b32" d="m64 75 9 16-9 8-9-8 9-16Z"/>
-    <path fill="none" stroke="#1eecc5" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" d="M9 110h40l15-14 9 18 8-8h38"/>
-  </g>
+<g transform="translate(8 8) scale(.153) translate(-100 -100)">
+<path fill="#1eecc5" d="M103 117 335 230 470 402 215 262Z"/>
+<path fill="#1eecc5" d="M833 117 601 230 466 402 721 262Z"/>
+<path fill="#1eecc5" d="M370 240Q470 222 570 240L470 308Z"/>
+<g fill="none" stroke="#1eecc5" stroke-width="34"><path d="M275 158Q470 60 672 158"/><path d="M172 255 142 275Q132 480 288 682"/><path d="M764 255 794 275Q804 480 648 682"/><path d="M245 335A95 95 0 1 0 404 416"/><path d="M691 335A95 95 0 1 1 532 416"/><path stroke-width="20" d="M185 718H385L470 810 555 718H752"/></g>
+<g stroke="#1eecc5" stroke-width="24" stroke-linecap="round"><path d="M328 368v36"/><path d="M608 368v36"/></g>
+<path fill="#1eecc5" d="M200 517 388 617 300 600Q240 570 200 517ZM736 517 548 617 636 600Q696 570 736 517Z"/>
+<path fill="none" stroke="#1eecc5" stroke-width="16" stroke-linejoin="round" d="M462 648 432 722 470 785 508 722Z"/>
+<path fill="#ff8b32" d="M470 428 505 470 470 568 432 462Z"/>
+</g>
+</g>
   <text x="380" y="208" text-anchor="middle" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="76" font-weight="750" letter-spacing="-4">
     <tspan fill="#f1f9f4">Node</tspan><tspan fill="#1eecc5">Sentinel</tspan>
   </text>
