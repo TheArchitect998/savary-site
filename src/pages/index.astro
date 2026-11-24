@@ -28,6 +28,8 @@ const projekte = [
     name: 'NodeSentinel',
     status: 'Aktiv',
     statusClass: 'done',
+    logo: '/images/nodesentinel-logo.svg',
+    logoAlt: 'NodeSentinel',
     beschreibung:
       'NodeSentinel ist ein selbst gehostetes, vollständig in Go geschriebenes Monitoring-Dashboard für Linux-Hosts und Homelabs. Es zeigt CPU, RAM, Temperaturen, Docker-Container, UFW- und Fail2Ban-Status mit 30 Tagen Verlauf. Dashboard und Agent laufen ohne Python-Laufzeit; Daten werden weiterhin lokal in SQLite gespeichert.',
     neuTitel: 'Neu in v2.4.1',
@@ -82,8 +84,12 @@ const projekte = [
       <h2>Projekte</h2>
       {projekte.map((p) => (
         <article class="card">
-          <h3>{p.name}</h3>
-          <span class={`status ${p.statusClass}`}>{p.status}</span>
+          <div class="project-heading">
+            {p.logo
+              ? <h3><img class="project-logo" src={p.logo} alt={p.logoAlt} width="760" height="250" /></h3>
+              : <h3>{p.name}</h3>}
+            <span class={`status ${p.statusClass}`}>{p.status}</span>
+          </div>
           <p>{p.beschreibung}</p>
           {p.neuListe && (
             <>
@@ -139,6 +145,9 @@ const projekte = [
   .subtitle { font-size: 1.05rem; margin-top: 0.4rem; }
   figcaption { color: var(--muted); font-size: 0.8rem; }
   h3 { margin-bottom: 0.35rem; }
+  .project-heading { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-bottom: 0.35rem; }
+  .project-heading h3 { margin: 0; min-width: 0; }
+  .card .project-logo { display: block; width: 230px; max-width: 100%; height: auto; margin: 0; border-radius: 0; }
   .badge { display: block; height: auto; width: 200px; }
   h4 { margin: 0.75rem 0 0.25rem; }
   .neu { margin: 0 0 1rem; padding-left: 1.25rem; }
@@ -146,5 +155,7 @@ const projekte = [
   @media (max-width: 600px) {
     .hero { flex-direction: column; align-items: flex-start; gap: 1.25rem; }
     .portrait { width: 140px; height: 140px; flex-basis: 140px; }
+    .project-heading { align-items: flex-start; flex-direction: column; }
+    .card .project-logo { width: 200px; }
   }
 </style>
