@@ -1,7 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 250" role="img" aria-labelledby="title desc">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 180" role="img" aria-labelledby="title desc">
   <title id="title">NodeSentinel</title>
   <desc id="desc">NodeSentinel Logo für dunkle Hintergründe</desc>
-  <g transform="translate(324 8) scale(.82)">
+  <g transform="translate(10 25) scale(1.15)">
 <g transform="translate(8 8) scale(.153) translate(-100 -100)">
 <path fill="#1eecc5" d="M103 117 335 230 470 402 215 262Z"/>
 <path fill="#1eecc5" d="M833 117 601 230 466 402 721 262Z"/>
@@ -13,7 +13,7 @@
 <path fill="#ff8b32" d="M470 428 505 470 470 568 432 462Z"/>
 </g>
 </g>
-  <text x="380" y="208" text-anchor="middle" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="76" font-weight="750" letter-spacing="-4">
+  <text x="175" y="120" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="76" font-weight="750" letter-spacing="-4">
     <tspan fill="#f1f9f4">Node</tspan><tspan fill="#1eecc5">Sentinel</tspan>
   </text>
 </svg>

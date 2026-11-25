@@ -9,6 +9,7 @@ const links = {
   linkedin: 'https://www.linkedin.com/in/pius-jj-savary',
   email: 'mailto:kontakt@savary.one',
   storePdf: 'https://apps.microsoft.com/detail/9p628vwsxmjt?ocid=webpdpshare',
+  websiteNodeSentinel: 'https://nodesentinel.de',
   repoNodeSentinel: 'https://github.com/TheArchitect998/NodeSentinel',
   dockerHub: 'https://hub.docker.com/u/thearchitect998',
 };
@@ -43,10 +44,12 @@ const projekte = [
     bildAlt: 'Screenshot von NodeSentinel mit Systemmetriken und Containerstatus',
     bildHinweis: 'Screenshot des Dashboards mit fiktiven Beispieldaten.',
     stack: ['Go', 'SQLite', 'Docker', 'HTML', 'JavaScript', 'Self-Hosting'],
-    href: links.repoNodeSentinel,
-    linkLabel: 'GitHub-Repository',
-    secondaryHref: links.dockerHub,
-    secondaryLinkLabel: 'Docker Hub',
+    href: links.websiteNodeSentinel,
+    linkLabel: 'Website',
+    secondaryHref: links.repoNodeSentinel,
+    secondaryLinkLabel: 'GitHub-Repository',
+    tertiaryHref: links.dockerHub,
+    tertiaryLinkLabel: 'Docker Hub',
   },
   {
     name: 'PDF-Migrator',
@@ -86,7 +89,7 @@ const projekte = [
         <article class="card">
           <div class="project-heading">
             {p.logo
-              ? <h3><img class="project-logo" src={p.logo} alt={p.logoAlt} width="760" height="250" /></h3>
+              ? <h3><img class="project-logo" src={p.logo} alt={p.logoAlt} width="760" height="180" /></h3>
               : <h3>{p.name}</h3>}
             <span class={`status ${p.statusClass}`}>{p.status}</span>
           </div>
@@ -121,6 +124,14 @@ const projekte = [
                   </a>
                 </>
               )}
+              {p.tertiaryHref && (
+                <>
+                  {' · '}
+                  <a href={p.tertiaryHref} target="_blank" rel="noopener">
+                    {p.tertiaryLinkLabel} ↗
+                  </a>
+                </>
+              )}
             </p>
           )}
         </article>
@@ -147,7 +158,7 @@ const projekte = [
   h3 { margin-bottom: 0.35rem; }
   .project-heading { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-bottom: 0.35rem; }
   .project-heading h3 { margin: 0; min-width: 0; }
-  .card .project-logo { display: block; width: 230px; max-width: 100%; height: auto; margin: 0; border-radius: 0; }
+  .card .project-logo { display: block; width: 320px; max-width: 100%; height: auto; margin: 0; border-radius: 0; }
   .badge { display: block; height: auto; width: 200px; }
   h4 { margin: 0.75rem 0 0.25rem; }
   .neu { margin: 0 0 1rem; padding-left: 1.25rem; }
@@ -156,6 +167,6 @@ const projekte = [
     .hero { flex-direction: column; align-items: flex-start; gap: 1.25rem; }
     .portrait { width: 140px; height: 140px; flex-basis: 140px; }
     .project-heading { align-items: flex-start; flex-direction: column; }
-    .card .project-logo { width: 200px; }
+    .card .project-logo { width: 260px; }
   }
 </style>
