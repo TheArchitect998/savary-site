@@ -22,12 +22,38 @@ const projekte = [
     logoAlt: 'NodeSentinel',
     beschreibung:
       'NodeSentinel ist ein selbst gehostetes, vollständig in Go geschriebenes Monitoring-Dashboard für Linux-Hosts und Homelabs. Es zeigt CPU, RAM, Temperaturen, Docker-Container, UFW- und Fail2Ban-Status mit 30 Tagen Verlauf. Dashboard und Agent laufen ohne Python-Laufzeit; Daten werden weiterhin lokal in SQLite gespeichert.',
-    neuTitel: 'Neu in v2.4.1',
-    neuListe: [
-      { label: 'WebSocket-Push', text: 'Agenten verbinden sich ausgehend und verschlüsselt mit dem Dashboard und senden regelmäßig Messwerte.' },
-      { label: 'Weniger Berechtigungen', text: 'Docker-Socket, Host-Dateisystem und Journal sind standardmäßig nicht eingebunden. Zusätzliche Datenquellen lassen sich bei Bedarf aktivieren.' },
-      { label: 'Gehärteter Dienst', text: 'Das systemd-Beispiel nutzt einen separaten Benutzer und zusätzliche Schutzmaßnahmen.' },
-      { label: 'Wiederverbindung', text: 'Agenten verbinden sich nach einem Ausfall automatisch erneut. Ereignisse werden nach Möglichkeit aus lokalen Quellen nachgeholt.' },
+    releases: [
+      {
+        version: 'v2.4.3',
+        titel: 'Dashboard-Design',
+        punkte: [
+          'Das Dashboard und die Anmeldeseite zeigen das neue NodeSentinel-Logo.',
+          'Browser-Favicons und Symbole für Desktop- und iPhone-Homebildschirm-Verknüpfungen ergänzt.',
+          'Die Symboldateien sind im Docker-Image enthalten.',
+        ],
+        hinweis: 'Bei nativen Installationen das Dashboard-Binary zusammen mit frontend/index.html und frontend/icons/ aktualisieren. Bestehende Verknüpfungen müssen möglicherweise neu erstellt werden.',
+      },
+      {
+        version: 'v2.4.2',
+        titel: 'Fehlerbehebung',
+        punkte: [
+          'Docker-Container-Benachrichtigungen verarbeiten Nanosekunden-Zeitstempel jetzt ohne Präzisionsverlust.',
+          'Start-/Stopp-Ereignisse werden damit wieder korrekt an konfigurierte Anbieter versendet.',
+          'Regressionstest für reale Docker-Event-Zeitstempel ergänzt.',
+        ],
+        hinweis: '',
+      },
+      {
+        version: 'v2.4.1',
+        titel: '',
+        punkte: [
+          'WebSocket-Push: Agenten verbinden sich ausgehend und verschlüsselt mit dem Dashboard und senden regelmäßig Messwerte.',
+          'Weniger Berechtigungen: Docker-Socket, Host-Dateisystem und Journal sind standardmäßig nicht eingebunden. Zusätzliche Datenquellen lassen sich bei Bedarf aktivieren.',
+          'Gehärteter Dienst: Das systemd-Beispiel nutzt einen separaten Benutzer und zusätzliche Schutzmaßnahmen.',
+          'Wiederverbindung: Agenten verbinden sich nach einem Ausfall automatisch erneut. Ereignisse werden nach Möglichkeit aus lokalen Quellen nachgeholt.',
+        ],
+        hinweis: '',
+      },
     ],
     bild: '/images/dashboard.png',
     bildAlt: 'Screenshot von NodeSentinel mit Systemmetriken und Containerstatus',
@@ -94,12 +120,20 @@ const projekte = [
             <span class={`status ${p.statusClass}`}>{p.status}</span>
           </div>
           <p>{p.beschreibung}</p>
-          {p.neuListe && (
+          {p.releases && (
             <>
-              <h4>{p.neuTitel}</h4>
-              <ul class="neu">
-                {p.neuListe.map((n) => <li><strong>{n.label}:</strong> {n.text}</li>)}
-              </ul>
+              <h4>Die letzten Releases</h4>
+              <div class="releases">
+                {p.releases.map((release) => (
+                  <section class="release">
+                    <h5>{release.version}{release.titel && ` – ${release.titel}`}</h5>
+                    <ul>
+                      {release.punkte.map((punkt) => <li>{punkt}</li>)}
+                    </ul>
+                    {release.hinweis && <p class="release-hinweis">{release.hinweis}</p>}
+                  </section>
+                ))}
+              </div>
             </>
           )}
           <figure>
@@ -161,8 +195,12 @@ const projekte = [
   .card .project-logo { display: block; width: 320px; max-width: 100%; height: auto; margin: 0; border-radius: 0; }
   .badge { display: block; height: auto; width: 200px; }
   h4 { margin: 0.75rem 0 0.25rem; }
-  .neu { margin: 0 0 1rem; padding-left: 1.25rem; }
-  .neu li { margin-bottom: 0.3rem; }
+  .releases { margin-bottom: 1rem; }
+  .release + .release { border-top: 1px solid var(--border); margin-top: 1rem; padding-top: 1rem; }
+  .release h5 { font-size: 1rem; margin-bottom: 0.25rem; }
+  .release ul { padding-left: 1.25rem; }
+  .release li { margin-bottom: 0.3rem; }
+  .release-hinweis { margin-top: 0.75rem; }
   @media (max-width: 600px) {
     .hero { flex-direction: column; align-items: flex-start; gap: 1.25rem; }
     .portrait { width: 140px; height: 140px; flex-basis: 140px; }
